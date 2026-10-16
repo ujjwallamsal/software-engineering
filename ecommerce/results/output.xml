@@ -1,0 +1,421 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 7.5 (Python 3.14.8 on darwin)" generated="2026-10-15T18:47:21.254808" rpa="false" schemaversion="5">
+<suite id="s1" name="Authentication" source="/Users/ujjwallamsal/Desktop/assignment/SOFTWARE ENGINEERING/E-Commerce/ecommerce/ecommerce/tests/authentication.robot">
+<test id="s1-t1" name="TC-01 Register with valid details" line="25">
+<kw name="Open Browser" owner="SeleniumLibrary">
+<msg time="2026-10-15T18:47:21.412353" level="INFO">Opening browser 'Chrome' to base url 'http://127.0.0.1:8000/register/'.</msg>
+<arg>${BASE_URL}/register/</arg>
+<arg>${BROWSER}</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="PASS" start="2026-10-15T18:47:21.412198" elapsed="0.818824"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2026-10-15T18:47:22.232410" level="INFO">Typing text 'testuser@example.com' into text field 'id=id_email'.</msg>
+<arg>id=id_email</arg>
+<arg>${VALID_EMAIL}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2026-10-15T18:47:22.231856" elapsed="0.094814"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2026-10-15T18:47:22.327042" level="INFO">Typing text 'SecurePass123!' into text field 'id=id_password1'.</msg>
+<arg>id=id_password1</arg>
+<arg>${VALID_PASSWORD}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2026-10-15T18:47:22.326860" elapsed="0.039855"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2026-10-15T18:47:22.367221" level="INFO">Typing text 'SecurePass123!' into text field 'id=id_password2'.</msg>
+<arg>id=id_password2</arg>
+<arg>${VALID_PASSWORD}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2026-10-15T18:47:22.367007" elapsed="0.033831"/>
+</kw>
+<kw name="Click Button" owner="SeleniumLibrary">
+<msg time="2026-10-15T18:47:22.401208" level="INFO">Clicking button 'xpath=//button[contains(text(), 'Register')]'.</msg>
+<arg>xpath=//button[contains(text(), 'Register')]</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="PASS" start="2026-10-15T18:47:22.401041" elapsed="0.039276"/>
+</kw>
+<kw name="Wait Until Location Is" owner="SeleniumLibrary">
+<arg>${BASE_URL}/login/</arg>
+<arg>timeout=10s</arg>
+<doc>Waits until the current URL is ``expected``.</doc>
+<status status="PASS" start="2026-10-15T18:47:22.440570" elapsed="0.036423"/>
+</kw>
+<kw name="Close Browser" owner="SeleniumLibrary" type="TEARDOWN">
+<doc>Closes the current browser.</doc>
+<status status="PASS" start="2026-10-15T18:47:22.477274" elapsed="0.080290"/>
+</kw>
+<doc>A new user registers with a unique email and matching passwords and is sent to the login page (RegisterView.success_url = '/login/')</doc>
+<status status="PASS" start="2026-10-15T18:47:21.411477" elapsed="1.146332"/>
+</test>
+<test id="s1-t2" name="TC-02 Reject duplicate email" line="34">
+<kw name="Open Browser" owner="SeleniumLibrary">
+<msg time="2026-10-15T18:47:22.558872" level="INFO">Opening browser 'Chrome' to base url 'http://127.0.0.1:8000/register/'.</msg>
+<arg>${BASE_URL}/register/</arg>
+<arg>${BROWSER}</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="PASS" start="2026-10-15T18:47:22.558692" elapsed="0.833507"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2026-10-15T18:47:23.393645" level="INFO">Typing text 'testuser@example.com' into text field 'id=id_email'.</msg>
+<arg>id=id_email</arg>
+<arg>${VALID_EMAIL}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2026-10-15T18:47:23.393024" elapsed="0.127151"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2026-10-15T18:47:23.520545" level="INFO">Typing text 'SecurePass123!' into text field 'id=id_password1'.</msg>
+<arg>id=id_password1</arg>
+<arg>${VALID_PASSWORD}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2026-10-15T18:47:23.520344" elapsed="0.039504"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2026-10-15T18:47:23.560202" level="INFO">Typing text 'SecurePass123!' into text field 'id=id_password2'.</msg>
+<arg>id=id_password2</arg>
+<arg>${VALID_PASSWORD}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2026-10-15T18:47:23.560019" elapsed="0.036971"/>
+</kw>
+<kw name="Click Button" owner="SeleniumLibrary">
+<msg time="2026-10-15T18:47:23.597380" level="INFO">Clicking button 'xpath=//button[contains(text(), 'Register')]'.</msg>
+<arg>xpath=//button[contains(text(), 'Register')]</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="PASS" start="2026-10-15T18:47:23.597211" elapsed="0.040439"/>
+</kw>
+<kw name="Wait Until Page Contains" owner="SeleniumLibrary">
+<arg>User with this Email already exists.</arg>
+<arg>timeout=10s</arg>
+<doc>Waits until ``text`` appears on the current page.</doc>
+<status status="PASS" start="2026-10-15T18:47:23.637798" elapsed="0.239794"/>
+</kw>
+<kw name="Location Should Contain" owner="SeleniumLibrary">
+<msg time="2026-10-15T18:47:23.880277" level="INFO">Current location contains '/register/'.</msg>
+<arg>/register/</arg>
+<doc>Verifies that the current URL contains ``expected``.</doc>
+<status status="PASS" start="2026-10-15T18:47:23.877746" elapsed="0.002580"/>
+</kw>
+<kw name="Close Browser" owner="SeleniumLibrary" type="TEARDOWN">
+<doc>Closes the current browser.</doc>
+<status status="PASS" start="2026-10-15T18:47:23.880521" elapsed="0.076486"/>
+</kw>
+<doc>Registering with an email that already exists shows Django's unique-field error and stays on the register page</doc>
+<status status="PASS" start="2026-10-15T18:47:22.558241" elapsed="1.398964"/>
+</test>
+<test id="s1-t3" name="TC-03 Login with valid credentials" line="44">
+<kw name="Open Browser" owner="SeleniumLibrary">
+<msg time="2026-10-15T18:47:23.958088" level="INFO">Opening browser 'Chrome' to base url 'http://127.0.0.1:8000/login/'.</msg>
+<arg>${BASE_URL}/login/</arg>
+<arg>${BROWSER}</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="PASS" start="2026-10-15T18:47:23.957945" elapsed="0.661092"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2026-10-15T18:47:24.619783" level="INFO">Typing text 'testuser@example.com' into text field 'id=id_email'.</msg>
+<arg>id=id_email</arg>
+<arg>${VALID_EMAIL}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2026-10-15T18:47:24.619479" elapsed="0.094067"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2026-10-15T18:47:24.713884" level="INFO">Typing text 'SecurePass123!' into text field 'id=id_password'.</msg>
+<arg>id=id_password</arg>
+<arg>${VALID_PASSWORD}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2026-10-15T18:47:24.713712" elapsed="0.032859"/>
+</kw>
+<kw name="Click Button" owner="SeleniumLibrary">
+<msg time="2026-10-15T18:47:24.746900" level="INFO">Clicking button 'xpath=//button[contains(text(), 'Login')]'.</msg>
+<arg>xpath=//button[contains(text(), 'Login')]</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="PASS" start="2026-10-15T18:47:24.746741" elapsed="0.040277"/>
+</kw>
+<kw name="Wait Until Location Is" owner="SeleniumLibrary">
+<arg>${BASE_URL}/</arg>
+<arg>timeout=10s</arg>
+<doc>Waits until the current URL is ``expected``.</doc>
+<status status="PASS" start="2026-10-15T18:47:24.787181" elapsed="0.207381"/>
+</kw>
+<kw name="Page Should Contain Element" owner="SeleniumLibrary">
+<msg time="2026-10-15T18:47:24.999572" level="INFO">Current page contains element 'xpath=//a[@href='/logout/']'.</msg>
+<arg>xpath=//a[@href='/logout/']</arg>
+<doc>Verifies that element ``locator`` is found on the current page.</doc>
+<status status="PASS" start="2026-10-15T18:47:24.994741" elapsed="0.004898"/>
+</kw>
+<kw name="Close Browser" owner="SeleniumLibrary" type="TEARDOWN">
+<doc>Closes the current browser.</doc>
+<status status="PASS" start="2026-10-15T18:47:24.999846" elapsed="0.079656"/>
+</kw>
+<doc>A registered user logs in and is redirected to the home page, where the Logout link appears in the navbar</doc>
+<status status="PASS" start="2026-10-15T18:47:23.957539" elapsed="1.122051"/>
+</test>
+<test id="s1-t4" name="TC-04 Logout ends the session" line="53">
+<kw name="Log In As Test User">
+<kw name="Open Browser" owner="SeleniumLibrary">
+<msg time="2026-10-15T18:47:25.080717" level="INFO">Opening browser 'Chrome' to base url 'http://127.0.0.1:8000/login/'.</msg>
+<arg>${BASE_URL}/login/</arg>
+<arg>${BROWSER}</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="PASS" start="2026-10-15T18:47:25.080595" elapsed="0.646463"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2026-10-15T18:47:25.727916" level="INFO">Typing text 'testuser@example.com' into text field 'id=id_email'.</msg>
+<arg>id=id_email</arg>
+<arg>${VALID_EMAIL}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2026-10-15T18:47:25.727432" elapsed="0.083546"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2026-10-15T18:47:25.811277" level="INFO">Typing text 'SecurePass123!' into text field 'id=id_password'.</msg>
+<arg>id=id_password</arg>
+<arg>${VALID_PASSWORD}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2026-10-15T18:47:25.811108" elapsed="0.033574"/>
+</kw>
+<kw name="Click Button" owner="SeleniumLibrary">
+<msg time="2026-10-15T18:47:25.844987" level="INFO">Clicking button 'xpath=//button[contains(text(), 'Login')]'.</msg>
+<arg>xpath=//button[contains(text(), 'Login')]</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="PASS" start="2026-10-15T18:47:25.844827" elapsed="0.035912"/>
+</kw>
+<kw name="Wait Until Location Is" owner="SeleniumLibrary">
+<arg>${BASE_URL}/</arg>
+<arg>timeout=10s</arg>
+<doc>Waits until the current URL is ``expected``.</doc>
+<status status="PASS" start="2026-10-15T18:47:25.880856" elapsed="0.210047"/>
+</kw>
+<status status="PASS" start="2026-10-15T18:47:25.080268" elapsed="1.010749"/>
+</kw>
+<kw name="Click Link" owner="SeleniumLibrary">
+<msg time="2026-10-15T18:47:26.091394" level="INFO">Clicking link 'xpath=//a[@href='/logout/']'.</msg>
+<arg>xpath=//a[@href='/logout/']</arg>
+<doc>Clicks a link identified by ``locator``.</doc>
+<status status="PASS" start="2026-10-15T18:47:26.091160" elapsed="0.053464"/>
+</kw>
+<kw name="Wait Until Location Is" owner="SeleniumLibrary">
+<arg>${BASE_URL}/login/</arg>
+<arg>timeout=10s</arg>
+<doc>Waits until the current URL is ``expected``.</doc>
+<status status="PASS" start="2026-10-15T18:47:26.144782" elapsed="0.001926"/>
+</kw>
+<kw name="Page Should Not Contain Element" owner="SeleniumLibrary">
+<msg time="2026-10-15T18:47:26.155560" level="INFO">Current page does not contain element 'xpath=//a[@href='/logout/']'.</msg>
+<arg>xpath=//a[@href='/logout/']</arg>
+<doc>Verifies that element ``locator`` is not found on the current page.</doc>
+<status status="PASS" start="2026-10-15T18:47:26.146865" elapsed="0.008757"/>
+</kw>
+<kw name="Close Browser" owner="SeleniumLibrary" type="TEARDOWN">
+<doc>Closes the current browser.</doc>
+<status status="PASS" start="2026-10-15T18:47:26.155907" elapsed="0.074091"/>
+</kw>
+<doc>A logged-in user clicks Logout and is redirected to LOGOUT_REDIRECT_URL (/login/), with the Logout link gone</doc>
+<status status="PASS" start="2026-10-15T18:47:25.079814" elapsed="1.150272"/>
+</test>
+<test id="s1-t5" name="TC-05 Guest checkout" line="60">
+<kw name="Open Browser" owner="SeleniumLibrary">
+<msg time="2026-10-15T18:47:26.230783" level="INFO">Opening browser 'Chrome' to base url 'http://127.0.0.1:8000/products/'.</msg>
+<arg>${BASE_URL}/products/</arg>
+<arg>${BROWSER}</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="PASS" start="2026-10-15T18:47:26.230655" elapsed="0.651283"/>
+</kw>
+<kw name="Click Link" owner="SeleniumLibrary">
+<msg time="2026-10-15T18:47:26.883687" level="INFO">Clicking link 'xpath=(//a[contains(text(), 'View')])[1]'.</msg>
+<arg>xpath=(//a[contains(text(), 'View')])[1]</arg>
+<doc>Clicks a link identified by ``locator``.</doc>
+<status status="PASS" start="2026-10-15T18:47:26.883065" elapsed="0.071858"/>
+</kw>
+<kw name="Wait Until Page Contains Element" owner="SeleniumLibrary">
+<arg>xpath=//button[contains(text(), 'Add to Cart')]</arg>
+<arg>timeout=10s</arg>
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<status status="PASS" start="2026-10-15T18:47:26.955081" elapsed="0.005122"/>
+</kw>
+<kw name="Click Button" owner="SeleniumLibrary">
+<msg time="2026-10-15T18:47:26.961077" level="INFO">Clicking button 'xpath=//button[contains(text(), 'Add to Cart')]'.</msg>
+<arg>xpath=//button[contains(text(), 'Add to Cart')]</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="PASS" start="2026-10-15T18:47:26.960571" elapsed="0.060546"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2026-10-15T18:47:30.023099" level="INFO">Slept 3 seconds.</msg>
+<arg>3s</arg>
+<doc>Pauses execution for the given time.</doc>
+<status status="PASS" start="2026-10-15T18:47:27.021291" elapsed="3.001897"/>
+</kw>
+<kw name="Go To" owner="SeleniumLibrary">
+<msg time="2026-10-15T18:47:30.023460" level="INFO">Opening url 'http://127.0.0.1:8000/cart/checkout/'</msg>
+<arg>${BASE_URL}/cart/checkout/</arg>
+<doc>Navigates the current browser window to the provided ``url``.</doc>
+<status status="PASS" start="2026-10-15T18:47:30.023340" elapsed="0.026715"/>
+</kw>
+<kw name="Wait Until Page Contains Element" owner="SeleniumLibrary">
+<arg>xpath=//form[@action='/register/guest/']</arg>
+<arg>timeout=10s</arg>
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<status status="PASS" start="2026-10-15T18:47:30.050271" elapsed="0.004293"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2026-10-15T18:47:30.055016" level="INFO">Typing text 'guest@example.com' into text field 'xpath=//form[@action='/register/guest/']//input[@name='email']'.</msg>
+<arg>xpath=//form[@action='/register/guest/']//input[@name='email']</arg>
+<arg>${GUEST_EMAIL}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2026-10-15T18:47:30.054746" elapsed="0.099809"/>
+</kw>
+<kw name="Click Button" owner="SeleniumLibrary">
+<msg time="2026-10-15T18:47:30.154916" level="INFO">Clicking button 'xpath=//form[@action='/register/guest/']//button'.</msg>
+<arg>xpath=//form[@action='/register/guest/']//button</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="PASS" start="2026-10-15T18:47:30.154723" elapsed="0.033264"/>
+</kw>
+<kw name="Wait Until Page Contains" owner="SeleniumLibrary">
+<arg>Shipping Address</arg>
+<arg>timeout=10s</arg>
+<doc>Waits until ``text`` appears on the current page.</doc>
+<status status="PASS" start="2026-10-15T18:47:30.188146" elapsed="0.264614"/>
+</kw>
+<kw name="Location Should Be" owner="SeleniumLibrary">
+<msg time="2026-10-15T18:47:30.454973" level="INFO">Current location is 'http://127.0.0.1:8000/cart/checkout/'.</msg>
+<arg>${BASE_URL}/cart/checkout/</arg>
+<doc>Verifies that the current URL is exactly ``url``.</doc>
+<status status="PASS" start="2026-10-15T18:47:30.452911" elapsed="0.002109"/>
+</kw>
+<kw name="Page Should Not Contain Element" owner="SeleniumLibrary">
+<msg time="2026-10-15T18:47:30.458661" level="INFO">Current page does not contain element 'xpath=//form[@action='/login/']'.</msg>
+<arg>xpath=//form[@action='/login/']</arg>
+<doc>Verifies that element ``locator`` is not found on the current page.</doc>
+<status status="PASS" start="2026-10-15T18:47:30.455126" elapsed="0.003584"/>
+</kw>
+<kw name="Close Browser" owner="SeleniumLibrary" type="TEARDOWN">
+<doc>Closes the current browser.</doc>
+<status status="PASS" start="2026-10-15T18:47:30.458922" elapsed="0.080009"/>
+</kw>
+<doc>A shopper with an item in the cart enters only an email on the checkout page and reaches the shipping address step without logging in</doc>
+<status status="PASS" start="2026-10-15T18:47:26.230273" elapsed="4.308760"/>
+</test>
+<test id="s1-t6" name="TC-06 Reject mismatched passwords" line="75">
+<kw name="Open Browser" owner="SeleniumLibrary">
+<msg time="2026-10-15T18:47:30.539810" level="INFO">Opening browser 'Chrome' to base url 'http://127.0.0.1:8000/register/'.</msg>
+<arg>${BASE_URL}/register/</arg>
+<arg>${BROWSER}</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="PASS" start="2026-10-15T18:47:30.539661" elapsed="0.778046"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2026-10-15T18:47:31.328224" level="INFO">Typing text 'newuser@example.com' into text field 'id=id_email'.</msg>
+<arg>id=id_email</arg>
+<arg>newuser@example.com</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2026-10-15T18:47:31.318659" elapsed="0.161168"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2026-10-15T18:47:31.480608" level="INFO">Typing text 'SecurePass123!' into text field 'id=id_password1'.</msg>
+<arg>id=id_password1</arg>
+<arg>${VALID_PASSWORD}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2026-10-15T18:47:31.480160" elapsed="0.038014"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2026-10-15T18:47:31.518553" level="INFO">Typing text 'WrongPass999!' into text field 'id=id_password2'.</msg>
+<arg>id=id_password2</arg>
+<arg>${WRONG_PASSWORD}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2026-10-15T18:47:31.518340" elapsed="0.032868"/>
+</kw>
+<kw name="Click Button" owner="SeleniumLibrary">
+<msg time="2026-10-15T18:47:31.551562" level="INFO">Clicking button 'xpath=//button[contains(text(), 'Register')]'.</msg>
+<arg>xpath=//button[contains(text(), 'Register')]</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="PASS" start="2026-10-15T18:47:31.551386" elapsed="0.038582"/>
+</kw>
+<kw name="Wait Until Page Contains" owner="SeleniumLibrary">
+<arg>Passwords don't match</arg>
+<arg>timeout=10s</arg>
+<doc>Waits until ``text`` appears on the current page.</doc>
+<status status="PASS" start="2026-10-15T18:47:31.590120" elapsed="0.031946"/>
+</kw>
+<kw name="Location Should Contain" owner="SeleniumLibrary">
+<msg time="2026-10-15T18:47:31.626003" level="INFO">Current location contains '/register/'.</msg>
+<arg>/register/</arg>
+<doc>Verifies that the current URL contains ``expected``.</doc>
+<status status="PASS" start="2026-10-15T18:47:31.622229" elapsed="0.003849"/>
+</kw>
+<kw name="Close Browser" owner="SeleniumLibrary" type="TEARDOWN">
+<doc>Closes the current browser.</doc>
+<status status="PASS" start="2026-10-15T18:47:31.626365" elapsed="0.082029"/>
+</kw>
+<doc>Registration fails when the two password fields differ, with the message from RegisterForm.clean_password2</doc>
+<status status="PASS" start="2026-10-15T18:47:30.539262" elapsed="1.169218"/>
+</test>
+<test id="s1-t7" name="TC-07 Reject wrong password at login" line="85">
+<kw name="Open Browser" owner="SeleniumLibrary">
+<msg time="2026-10-15T18:47:31.709167" level="INFO">Opening browser 'Chrome' to base url 'http://127.0.0.1:8000/login/'.</msg>
+<arg>${BASE_URL}/login/</arg>
+<arg>${BROWSER}</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="PASS" start="2026-10-15T18:47:31.709037" elapsed="0.621828"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2026-10-15T18:47:32.332071" level="INFO">Typing text 'testuser@example.com' into text field 'id=id_email'.</msg>
+<arg>id=id_email</arg>
+<arg>${VALID_EMAIL}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2026-10-15T18:47:32.331572" elapsed="0.087319"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2026-10-15T18:47:32.419258" level="INFO">Typing text 'WrongPass999!' into text field 'id=id_password'.</msg>
+<arg>id=id_password</arg>
+<arg>${WRONG_PASSWORD}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2026-10-15T18:47:32.419065" elapsed="0.034791"/>
+</kw>
+<kw name="Click Button" owner="SeleniumLibrary">
+<msg time="2026-10-15T18:47:32.454192" level="INFO">Clicking button 'xpath=//button[contains(text(), 'Login')]'.</msg>
+<arg>xpath=//button[contains(text(), 'Login')]</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="PASS" start="2026-10-15T18:47:32.454036" elapsed="0.063437"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2026-10-15T18:47:35.518596" level="INFO">Slept 3 seconds.</msg>
+<arg>3s</arg>
+<doc>Pauses execution for the given time.</doc>
+<status status="PASS" start="2026-10-15T18:47:32.517641" elapsed="3.001114"/>
+</kw>
+<kw name="Location Should Contain" owner="SeleniumLibrary">
+<msg time="2026-10-15T18:47:35.523665" level="INFO">Current location contains '/login/'.</msg>
+<arg>/login/</arg>
+<doc>Verifies that the current URL contains ``expected``.</doc>
+<status status="PASS" start="2026-10-15T18:47:35.519104" elapsed="0.004626"/>
+</kw>
+<kw name="Page Should Not Contain Element" owner="SeleniumLibrary">
+<msg time="2026-10-15T18:47:35.528874" level="INFO">Current page does not contain element 'xpath=//a[@href='/logout/']'.</msg>
+<arg>xpath=//a[@href='/logout/']</arg>
+<doc>Verifies that element ``locator`` is not found on the current page.</doc>
+<status status="PASS" start="2026-10-15T18:47:35.523893" elapsed="0.005052"/>
+</kw>
+<kw name="Close Browser" owner="SeleniumLibrary" type="TEARDOWN">
+<doc>Closes the current browser.</doc>
+<status status="PASS" start="2026-10-15T18:47:35.529306" elapsed="0.082255"/>
+</kw>
+<doc>Login with a wrong password stays on the login page and does not log the user in</doc>
+<status status="PASS" start="2026-10-15T18:47:31.708673" elapsed="3.902974"/>
+</test>
+<doc>Accounts module: register, login, logout, guest checkout.
+Expected values come from accounts/views.py, accounts/forms.py,
+ecommerce/urls.py, settings.py and the accounts/carts templates.</doc>
+<status status="PASS" start="2026-10-15T18:47:21.255449" elapsed="14.356573"/>
+</suite>
+<statistics>
+<total>
+<stat pass="7" fail="0" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat name="Authentication" id="s1" pass="7" fail="0" skip="0">Authentication</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>
